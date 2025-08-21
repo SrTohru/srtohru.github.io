@@ -7,16 +7,13 @@ export default function Navbar() {
     const { t, locale, setLocale } = useI18n();
 
     // Ensure t has the required keys to avoid runtime errors
-    if (!t || !t.brand || !t.about || !t.projects || !t.contact || !setLocale) {
+    if (!t  || !t.about || !t.projects || !t.contact || !setLocale) {
         return null;
     }
 
     return (
         <nav className="bg-gray-800 p-4">
-            <div className="container mx-auto flex justify-between items-center">
-                <Link href="/" className="text-white text-lg font-semibold">
-                    {t.brand}
-                </Link>
+            <div className="container mx-auto flex justify-center items-center">
                 <div>
                     <Link href="/about" className="text-gray-300 hover:text-white px-4">
                         {t.about}
