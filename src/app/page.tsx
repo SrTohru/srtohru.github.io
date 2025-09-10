@@ -3,6 +3,15 @@ import Link from 'next/link';
 import { useI18n } from '@/app/providers/LanguageProvider';
 import { projects } from '@/i18n/dictionary';
 
+/**
+ * Renders the home page of the portfolio.
+ * This component displays three main sections:
+ * 1. A hero section with a title and subtitle.
+ * 2. An "About Me" preview with a short biography and a picture.
+ * 3. A "Featured Projects" section that showcases a few projects.
+ *
+ * @returns {JSX.Element} The rendered home page component.
+ */
 export default function Home() {
   const { t } = useI18n();
 
@@ -43,6 +52,7 @@ export default function Home() {
           {t.home.projectsTitle}
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Map over the projects array and render a card for each project. */}
           {projects.map((p) => (
             <div
               key={p.id}

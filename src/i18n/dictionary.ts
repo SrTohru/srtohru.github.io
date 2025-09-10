@@ -1,3 +1,10 @@
+/**
+ * An object containing the translations for the application.
+ * The keys are the locales (e.g., 'es', 'en'), and the values are objects
+ * containing the translated strings.
+ *
+ * @type {{ [key in Locale]: { about: string; projects: string; contact: string; home: { heroTitle: string; heroSubtitle: string; ctaContact: string; ctaProjects: string; aboutTitle: string; aboutText: string; projectsTitle: string; }; }; }}
+ */
 export const messages = {
   es: {
     about: "Acerca de mi",
@@ -30,6 +37,20 @@ export const messages = {
 } as const;
 
 
+/**
+ * @typedef {object} Project
+ * @property {number} id - The unique identifier of the project.
+ * @property {string} title - The title of the project.
+ * @property {string} description - A brief description of the project.
+ * @property {string} image - The path to the project's image.
+ * @property {string} link - A link to the project.
+ */
+
+/**
+ * An array of project objects, each representing a project to be displayed on the portfolio.
+ *
+ * @type {Project[]}
+ */
 export const projects = [
   {
     id: 1,
@@ -55,4 +76,8 @@ export const projects = [
 ] as const;
 
 
+/**
+ * The available locales for the application.
+ * @type {'es' | 'en'}
+ */
 export type Locale = keyof typeof messages;
