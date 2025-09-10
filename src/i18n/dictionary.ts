@@ -43,7 +43,8 @@ export const messages = {
  * @property {string} title - The title of the project.
  * @property {string} description - A brief description of the project.
  * @property {string} image - The path to the project's image.
- * @property {string} link - A link to the project.
+ * @property {string} liveLink - A link to the live demo of the project.
+ * @property {string} sourceLink - A link to the source code of the project.
  */
 
 /**
@@ -57,21 +58,24 @@ export const projects = [
     title: "Portfolio Website",
     description: "A personal portfolio website showcasing my skills and projects.",
     image: "/images/EilynFotografia.jpg",
-    link: "test",
-  }, 
+    liveLink: "#",
+    sourceLink: "#",
+  },
   {
     id: 2,
     title: "Eilyn Garcia Fotografía Website Management & WhatsApp Bot",
     description: "Worked on the backend & frontend of a system for managing photography studio business data and appointments, integrated with a WhatsApp chatbot for customer interactions.",
     image: "/images/EilynFotografia.jpg",
-    link: "test",
+    liveLink: "#",
+    sourceLink: "#",
   },
   {
     id: 3,
     title: "Blog Application",
     description: "A blog application with user authentication and CRUD operations.",
     image: "/images/blog.jpg",
-    link: "test",
+    liveLink: "#",
+    sourceLink: "#",
   },
 ] as const;
 

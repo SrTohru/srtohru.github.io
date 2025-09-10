@@ -56,7 +56,7 @@ export default function Home() {
           {projects.map((p) => (
             <div
               key={p.id}
-              className="rounded-lg border border-gray-200 dark:border-gray-700 p-4"
+              className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 transition-transform transform hover:scale-105"
             >
               <div className="h-32 bg-gray-100 dark:bg-gray-800 rounded mb-3">
                 <img
