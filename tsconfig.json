@@ -1,27 +1,44 @@
 {
   "compilerOptions": {
+    // The target version of JavaScript to compile to.
     "target": "ES2017",
+    // A list of library files to be included in the compilation.
     "lib": ["dom", "dom.iterable", "esnext"],
+    // Allow JavaScript files to be compiled.
     "allowJs": true,
+    // Skip type checking of all declaration files (*.d.ts).
     "skipLibCheck": true,
+    // Enable all strict type-checking options.
     "strict": true,
+    // Do not emit output files.
     "noEmit": true,
+    // Enables emit interoperability between CommonJS and ES Modules.
     "esModuleInterop": true,
+    // The module system to use for the output.
     "module": "esnext",
+    // The module resolution strategy.
     "moduleResolution": "bundler",
+    // Allow importing JSON modules.
     "resolveJsonModule": true,
+    // Ensure that each file can be safely transpiled without relying on other imports.
     "isolatedModules": true,
+    // The JSX mode to use for the output.
     "jsx": "preserve",
+    // Enable incremental compilation.
     "incremental": true,
+    // A list of plugins to load.
     "plugins": [
       {
         "name": "next"
       }
     ],
+    // A series of entries which re-map imports to lookup locations.
     "paths": {
       "@/*": ["./src/*"]
     }
   },
+  // A list of files to be included in the compilation.
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  // A list of files to be excluded from the compilation.
   "exclude": ["node_modules"]
 }
