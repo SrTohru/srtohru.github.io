@@ -6,9 +6,17 @@ type Ctx = { locale: Locale; setLocale: (l: Locale) => void; t: (typeof messages
 const LanguageContext = createContext<Ctx | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocale] = useState<Locale>(() =>
-    (typeof window !== "undefined" && (localStorage.getItem("locale") as Locale)) || "es"
-  );
+  
+  const [locale, setLocale] = useState<Locale>("es");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("locale") as Locale | null;
+      if (saved && saved !== locale) {
+        setLocale(saved);
+      }
+    }
+  }, []); 
 
   useEffect(() => {
     if (typeof window !== "undefined") {
