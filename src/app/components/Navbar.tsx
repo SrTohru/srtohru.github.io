@@ -21,11 +21,8 @@ export default function Navbar() {
         <nav className="bg-gray-800 p-4">
             <div className="container mx-auto flex justify-center items-center">
                 <div>
-                    <Link href="/about" className="text-gray-300 hover:text-white px-4">
+                    <Link href="/" className="text-gray-300 hover:text-white px-4">
                         {t.about}
-                    </Link>
-                    <Link href="/projects" className="text-gray-300 hover:text-white px-4">
-                        {t.projects}
                     </Link>
                     <Link href="/contact" className="text-gray-300 hover:text-white px-4">
                         {t.contact}

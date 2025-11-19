@@ -1,24 +1,30 @@
 'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 import { useI18n } from '@/app/providers/LanguageProvider';
-import { projects } from '@/i18n/dictionary';
+import { projects, technologyIcons } from '@/i18n/dictionary';
+import ProjectModal from '@/app/components/ProjectModal';
 
-/**
- * Renders the home page of the portfolio.
- * This component displays three main sections:
- * 1. A hero section with a title and subtitle.
- * 2. An "About Me" preview with a short biography and a picture.
- * 3. A "Featured Projects" section that showcases a few projects.
- *
- * @returns {JSX.Element} The rendered home page component.
- */
 export default function Home() {
   const { t } = useI18n();
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const techStack = Object.keys(technologyIcons);
+
+  const openModal = (projectId: number) => {
+    setSelectedProject(projectId);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="container mx-auto px-4 py-16 flex flex-col items-center text-center">
+      <section className="container mx-auto px-6 py-8 flex flex-col items-center text-center">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
           {t.home.heroTitle}
         </h1>
@@ -28,7 +34,7 @@ export default function Home() {
       </section>
 
       {/* About preview */}
-      <section className="container mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
+      <section className="container mx-auto px-16 py-12 grid md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-4xl font-semibold text-gray-900 dark:text-white mb-3">
             {t.home.aboutTitle}
@@ -46,35 +52,66 @@ export default function Home() {
         </div> 
       </section>
 
+
+  {/* Technologies preview */}
+  <section className="container mx-auto px-4 py-12 mb-12">
+  
+    <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Stack technologies</h2>
+  
+  <div className="flex justify-center">
+    <div className='grid grid-cols-4 sm:grid-cols-8 gap-2 max-w-3xl'>
+      {techStack.map((tech) => (
+      <div key={tech} className="flex flex-col items-center">
+        <div className="h-16 w-16 flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
+          <img
+            src={`https://api.iconify.design/${technologyIcons[tech]}.svg`}
+            alt={tech}
+            className="h-10 w-10"
+            loading="lazy"
+          />
+        </div>
+        <span className="mt-3 text-sm text-gray-700 dark:text-gray-300">{tech}</span>
+      </div>
+    ))}
+    </div>
+  </div>
+</section>
+
       {/* Projects preview */}
       <section className="container mx-auto px-4 py-12">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+        <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
           {t.home.projectsTitle}
         </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Map over the projects array and render a card for each project. */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
           {projects.map((p) => (
             <div
               key={p.id}
-              className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 transition-transform transform hover:scale-105"
+              onClick={() => openModal(p.id)}
+              className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 cursor-pointer hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-200"
             >
-              <div className="h-32 bg-gray-100 dark:bg-gray-800 rounded mb-3">
+              <div className="h-64 bg-gray-100 dark:bg-gray-800 rounded mb-3">
                 <img
                   src={p.image}
                   alt={p.title}
                   className="w-full h-full object-cover rounded"
                 />
               </div>
-              <div className="h-auto bg-gray-100 dark:bg-gray-800 rounded w-auto mb-2">
+              <div className="h-auto bg-gray-100 dark:bg-gray-800 rounded w-auto mb-2 items-center justify-center flex">
                 <h3 className="text-base font-semibold text-gray-900 dark:text-white">
                   {p.title}
                 </h3>
               </div>
-             
             </div>
           ))}
         </div>
       </section>
+
+      {/* Project Modal */}
+      <ProjectModal
+        projectId={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </main>
   );
 }
