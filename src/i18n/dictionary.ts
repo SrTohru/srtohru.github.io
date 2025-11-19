@@ -42,9 +42,8 @@ export const messages = {
 export const technologyIcons: Record<string, string> = {
   Java: "logos:java",
   "C#": "logos:c-sharp",
-  JavaScript: "logos:javascript",
+  Python: "logos:python",
   React: "logos:react",
-  "Vue.js": "logos:vue",
   "Node.js": "logos:nodejs-icon",
   ".NET Core": "logos:dotnet",
   MySQL: "logos:mysql",
@@ -52,9 +51,7 @@ export const technologyIcons: Record<string, string> = {
   Angular: "logos:angular-icon",
   TypeScript: "logos:typescript-icon",
   "Tailwind CSS": "logos:tailwindcss-icon",
-  TypeORM: "logos:typeorm",
   "Nest.js": "logos:nestjs",
-  BuilderBot: "simple-icons:whatsapp",
 };
 
 export const projects = [
