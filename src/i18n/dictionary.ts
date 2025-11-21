@@ -57,14 +57,14 @@ export const technologyIcons: Record<string, string> = {
 export const projects = [
   {
     id: 1,
-    title: "Portfolio Website",
+    title: "Minecraft Java Plugin",
     description: {
-      es: "Un sitio web de portafolio personal que muestra mis habilidades y proyectos.",
-      en: "A personal portfolio website showcasing my skills and projects."
+      es: "Un plugin de Minecraft desarrollado en Java para mejorar la experiencia de juego usando Spigot y Java, que añade sistemas para la gestion del mismo.",
+      en: "A Minecraft plugin developed in Java to enhance the gaming experience on servers using Spigot and Java, adding systems for server management."
     },
-    image: "/images/portfolioimg.jpg",
-    technologies: ["Angular", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/SrTohru/srtohru.github.io",
+    image: "/images/spigotmc.jpg",
+    technologies: ["Java", "Spigot"],
+    github: "https://github.com/SrTohru/UltraCore.git",
   }, 
   {
     id: 2,
